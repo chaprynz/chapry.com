@@ -1,0 +1,33 @@
+html,body,h1,h2,h3,h4,h5 {font-family: "RobotoDraft","Roboto",sans-serif;}
+.w3-sidenav a {font-weight:900;color:#1E1E1E;}
+
+@import 'w3';
+@import "font-awesome";
+@import 'toastr';
+
+.search { position: relative; }
+
+.search input {
+  width: 250px;
+  height: 32px;
+
+  background: #fcfcfc;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+}
+
+.search input { text-indent: 32px;}
+.search .fa-search { 
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.active {
+  background: #1968B3;
+}

@@ -1,0 +1,40 @@
+<div class="w3-main ">    
+		<%= render partial: "shared/message" %>
+		<%= render partial: "shared/header" %>
+		
+		<div class="w3-padding w3-container"
+		   
+				<div class="w3-padding w3-container">   
+					<div class="w3-padding-large w3-col l3 m4 s12">
+						<% @book.where('id>0').limit(2).each do |book| %>
+								<%= link_to  book_path(book) do %>
+									<div class="w3-card-1 w3-black">
+										<%= image_tag book.image, style: "width:100%" %>
+										<div class="w3-container">
+											<h3><%= book.name %></h3>
+										</div>
+									</div><br>
+								<% end %>	
+						<% end %>
+				 	</div>
+				 	<div class="w3-padding-large w3-col l3 m4 s12">
+						<% @book.where('id>3').limit(2).each do |book| %>
+								<%= link_to  book_path(book) do %>
+									<div class="w3-card-1 w3-black">
+										<%= image_tag book.image, style: "width:100%" %>
+										<div class="w3-container">
+											<h3><%= book.name %></h3>
+										</div>
+									</div><br>
+								<% end %>	
+						<% end %>
+				 	</div>
+				</div>
+				
+			
+		</div>
+		
+		
+		<%= render partial: "shared/footer" %>
+	
+	</div>

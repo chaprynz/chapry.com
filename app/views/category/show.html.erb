@@ -1,0 +1,22 @@
+<div class="w3-main ">    
+        <%= render partial: "shared/message" %>
+        <%= render partial: "shared/header" %>
+        
+        <% @posts.each do |post| %>
+			<%= link_to [post.category, post]  do %>
+				<div class="w3-padding-medium w3-col m6 l4">
+					<div class="w3-col s3 m3 l3">
+                        <img class="w3-round" src="http://dsg.files.app.content.prod.s3.amazonaws.com/gereports/wp-content/uploads/2015/10/16104325/GE_Brilliant_OilgasC-1024x1024.jpg" style="width:100%">
+                    </div>
+                    
+                    <div class="w3-col s9 m9 l9 w3-container">
+                        <h3><%= post.title %></h3>
+                        
+                    </div>
+		        </div>
+			<% end %>
+		<% end %>
+    
+        <%= render partial: "shared/footer" %>
+    
+    </div>

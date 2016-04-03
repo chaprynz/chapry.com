@@ -1,0 +1,59 @@
+
+
+
+<div class="w3-top  w3-container w3-padding w3-theme ">
+  <%= link_to root_path do %>
+       <%= image_tag "robot_black", style: "width:18px" %>
+       <div class="w3-tag w3-theme-l1">c</div>
+        <div class="w3-tag w3-theme-l1" >h</div>
+        <div class="w3-tag w3-theme-l1">a</div>
+        <div class="w3-tag w3-theme-l1">p</div>
+        <div class="w3-tag w3-theme-l2">r</div>
+        <div class="w3-tag w3-theme-l2">y</div>
+  <% end %>
+      
+    
+  <% if(!user_signed_in?) %>
+    
+    <div style="float:right"><%= link_to "Dang Nhap", new_user_session_path %></div>
+    
+  <% else%>
+    <a style="float:right" href="javascript:void(0);" onclick="myFunction()">Hi!.<%= current_user.name %><i class="fa fa-caret-down"></i></a> 
+    
+    <div id="demo" class="w3-hide ">
+      <ul class="w3-navbar w3-left-align w3-large w3-black">
+        <li><%= link_to "THOÁT", destroy_user_session_path, method: :delete, class: "w3-hover-shadow"  %></li>
+        <li><%= link_to "TAI KHOẢN", edit_user_registration_path, class: "w3-hover-shadow"  %> </li>
+      </ul>
+    </div>
+  <% end %>  
+</div>
+
+  
+  <header class="w3-card-1 w3-container w3-theme-l2 ">
+	  <div style="margin-top:70px" class="w3-container">
+  	  <h1 style="color:#337AB7;margin-top:48px"><i style="margin-right:7px" class="w3-spin fa fa-cogs"></i>KỸ NĂNG</h1>
+      <ul style="float:right" class="w3-navbar">
+        <li class=<%= is_active?(book_index_path) %>>
+          <%= link_to book_index_path do %>
+          <i style="margin-right:7px" class="fa fa-file-text-o"  ></i>books (3000)
+          <% end %>
+        </li>
+        <li class=<%= is_active?(category_index_path) %>>
+          <%= link_to category_index_path do %>
+          <i style="margin-right:7px" class="fa fa-file-text-o"  ></i>articles (3000)
+          <% end %>
+        </li>
+      </ul>  
+    </div>
+    <div style="max-width:960px;margin:auto" class="search">
+      <span style="color:black" class="fa fa-search"></span>
+      <input class="w3-animate-input">
+    </div><br/>
+</header>
+	
+	
+	
+
+
+
