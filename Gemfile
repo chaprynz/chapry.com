@@ -37,5 +37,5 @@ end
 group :production do
   gem 'web-console', '~> 2.0'
   gem 'spring'
-  gem 'mysql'
+  gem 'mysql2'
 end
