@@ -35,7 +35,5 @@ group :development do
 end
 
 group :production do
-  gem 'web-console', '~> 2.0'
-  gem 'spring'
   gem 'mysql2', '~> 0.4.3'
 end
