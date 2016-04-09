@@ -8,7 +8,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0', group: :doc
+
 
 gem 'devise', '~> 3.5', '>= 3.5.6'
 gem "font-awesome-rails"
@@ -24,6 +24,14 @@ gem 'activeadmin-wysihtml5', github: 'stefanoverna/activeadmin-wysihtml5'
 
 gem 'active_admin-sortable_tree', '~> 0.2.1'
 gem 'paperclip', '~> 4.3', '>= 4.3.6'
+
+gem 'therubyracer', platforms: :ruby
+
+group :doc do
+  gem 'sdoc', '~> 0.4.0'
+end
+
+gem 'aws-sdk-rails', '~> 1.0'
 
 group :development, :test do
   gem 'byebug'
