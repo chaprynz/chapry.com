@@ -1,145 +1,93 @@
-<div class="w3-main ">    
-        <%= render partial: "shared/message" %>
-    
-    </div>
-    
-<nav class="w3-sidenav w3-collapse w3-white w3-animate-left w3-card-2" style="z-index:3;width:250px;">
-  <a href="#" class="w3-border-bottom w3-large"><img src="http://www.w3schools.com/images/w3schools.png" style="width:80%;"></a>
-  <a href="javascript:void(0)" onclick="w3_close()" 
-  class="w3-text-teal w3-hide-large w3-closenav w3-large">Close ×</a>
-  	
-  <% @bookposts.each do |bookpost| %>
-		<%= link_to [bookpost.book, bookpost]  do %>
-                    <%= bookpost.title %>
-		<% end %>
-	<% end %>   		
-  		
+   
+<%= render partial: "shared/message" %>
+		
+<nav class="w3-sidenav w3-collapse w3-white w3-card-2" style="z-index:3;width:300px;">
+	<p class="w3-center w3-border-bottom" style="font-size:1.6em"><%= @book.name %></p>
+	<a href="javascript:void(0)" onclick="w3_close()" 
+	class="w3-text-teal w3-hide-large w3-closenav w3-large">Close ×</a>
+		
+	<% @bookposts.each do |bookpost| %>
+		<% if bookpost.header %>
+			<h3 style="margin-left:10px"><%= bookpost.title %></h3>
+		<% else %>	
+			<%= link_to  [bookpost.book, bookpost], class: "w3-hover-text-blue" do %>
+										 <i class="fa fa-file-text" style="margin-right:10px"></i><%= bookpost.title  %>
+			<% end %>
+		<% end %>	
+	<% end %> 	
 </nav>
 
 <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer"></div>
 
-<div class="w3-main" style="margin-left:250px;">
-
-<div class="w3-top  w3-container w3-padding w3-theme ">
-  <i class="fa fa-bars w3-opennav w3-hide-large w3-xlarge w3-margin-left w3-margin-right" onclick="w3_open()"></i>
-  <%= link_to root_path do %>
-       <%= image_tag "robot_black", style: "width:18px" %>
-       <div class="w3-tag w3-theme-l1">c</div>
-        <div class="w3-tag w3-theme-l1" >h</div>
-        <div class="w3-tag w3-theme-l1">a</div>
-        <div class="w3-tag w3-theme-l1">p</div>
-        <div class="w3-tag w3-theme-l2">r</div>
-        <div class="w3-tag w3-theme-l2">y</div>
-  <% end %>
-      
-    
-  <% if(!user_signed_in?) %>
-    
-    <div style="float:right"><%= link_to "Dang Nhap", new_user_session_path %></div>
-    
-  <% else%>
-    <a style="float:right" href="javascript:void(0);" onclick="myFunction()">Hi!.<%= current_user.name %><i class="fa fa-caret-down"></i></a> 
-    
-    <div id="demo" class="w3-hide ">
-      <ul class="w3-navbar w3-left-align w3-large w3-black">
-        <li><%= link_to "THOÁT", destroy_user_session_path, method: :delete, class: "w3-hover-shadow"  %></li>
-        <li><%= link_to "TAI KHOẢN", edit_user_registration_path, class: "w3-hover-shadow"  %> </li>
-      </ul>
-    </div>
-  <% end %>  
-</div>
-
-  
-  <header class="w3-card-1 w3-container w3-theme-l2 ">
-	  <div style="margin-top:70px" class="w3-container">
-  	  <h1 style="color:#337AB7;margin-top:48px"><i style="margin-right:7px" class="w3-spin fa fa-cogs"></i>KỸ NĂNG</h1>
-      <ul style="float:right" class="w3-navbar">
-        <li>
-          <%= link_to book_index_path do %>
-          <i style="margin-right:7px" class="fa fa-file-text-o"  ></i>books (3000)
-          <% end %>
-        </li>
-        <li>
-          <%= link_to category_index_path do %>
-          <i style="margin-right:7px" class="fa fa-file-text-o"  ></i>articles (3000)
-          <% end %>
-        </li>
-      </ul>  
-    </div>
-    <div style="max-width:960px;margin:auto" class="search">
-      <span style="color:black" class="fa fa-search"></span>
-      <input class="w3-animate-input">
-    </div><br/>
-</header>
+<div class="w3-main" style="margin-left:300px;">
 	
+	<div class="w3-top  w3-container w3-padding w3-theme ">
+		<i class="fa fa-bars w3-opennav w3-hide-large w3-xlarge w3-margin-left w3-margin-right" onclick="w3_open()"></i>
+		<%= link_to root_path do %>
+				 <%= image_tag "robot_black", style: "width:18px" %>
+				 <div class="w3-tag w3-theme-l1">c</div>
+					<div class="w3-tag w3-theme-l1" >h</div>
+					<div class="w3-tag w3-theme-l1">a</div>
+					<div class="w3-tag w3-theme-l1">p</div>
+					<div class="w3-tag w3-theme-l2">r</div>
+					<div class="w3-tag w3-theme-l2">y</div>
+		<% end %>
+				
+			
+		<% if(!user_signed_in?) %>
+			
+			<div style="float:right"><%= link_to "Dang Nhap", new_user_session_path %></div>
+			
+		<% else%>
+			<a style="float:right" href="javascript:void(0);" onclick="myFunction()">Hi!.<%= current_user.name %><i class="fa fa-caret-down"></i></a> 
+			
+			<div id="demo" class="w3-hide ">
+				<ul class="w3-navbar w3-left-align w3-large w3-black">
+					<li><%= link_to "THOÁT", destroy_user_session_path, method: :delete, class: "w3-hover-shadow"  %></li>
+					<li><%= link_to "TAI KHOẢN", edit_user_registration_path, class: "w3-hover-shadow"  %> </li>
+				</ul>
+			</div>
+		<% end %>  
+	</div>
 
-<div class="w3-container w3-padding-jumbo">
-  <h1 class="w3-text-teal">What is W3.CSS?</h1>
-  <h5>W3.CSS is a small, fast, and modern CSS framework with built-in responsiveness.</h5>
-  <ul class="w3-leftbar w3-theme-border" style="list-style-type:none">
-   <li>Designed to be smaller and faster than other CSS frameworks.</li>
-   <li>Designed to be easier to learn, and easier to use than other CSS frameworks.</li>
-   <li>Designed to provide CSS equality for all devices: PC, laptop, tablet, and mobile.</li>
-   <li>Designed to use standard CSS only (No need for jQuery or JavaScript).</li>
-   <li>Designed to speed up mobile HTML apps.</li>
-   <li>W3.CSS is free to use. No license is necessary.</li>
-  </ul>
-  <br>
-  
-  <h2 class="w3-section w3-text-teal">Demo</h2>
-  <div class="w3-example w3-section">
-<h3>Example</h3>
-<div class="w3-code notranslate htmlHigh">
- <div class="w3-container w3-teal"><br>  <h1>My Header</h1><br>
- </div><br><br><img 
- src="img_car.png" alt="Car" style="width:100%"><br><br><div class="w3-container"><br>
-  
- <p>A car is a wheeled, self-powered motor vehicle used for transportation.</p><br></div><br><br>
-<div class="w3-container w3-teal"><br>  <p>My Footer</p><br>
- </div></div>
-<a class="w3-btn w3-large w3-theme w3-margin-bottom" href="tryit.asp?filename=tryw3css_intro" target="_blank">Try It Yourself »</a>
-</div>
-<br>
-  
-<h2 class="w3-section w3-text-teal">Colors</h2>
-<p>W3.CSS uses color classes.</p>
-<p>The color classes are inspired by colors used in marketing, road signs, and sticky notes.</p>
-<div class="w3-container w3-red"><p>w3-red</p></div><br>
-<div class="w3-container w3-pink"><p>w3-pink</p></div><br>
-<div class="w3-container w3-purple"><p>w3-purple</p></div><br>
-<div class="w3-container w3-deep-purple"><p>w3-deep-purple</p></div><br>
-<div class="w3-container w3-indigo"><p>w3-indigo</p></div><br>
-<div class="w3-container w3-blue"><p>w3-blue</p></div><br>
-<div class="w3-container w3-light-blue"><p>w3-light-blue</p></div><br>
-<div class="w3-container w3-cyan"><p>w3-cyan</p></div><br>
-<div class="w3-container w3-aqua"><p>w3-aqua</p></div><br>
-<div class="w3-container w3-teal"><p>w3-teal</p></div><br>
-<div class="w3-container w3-green"><p>w3-green</p></div><br>
-<div class="w3-container w3-light-green"><p>w3-light-green</p></div><br>
-<div class="w3-container w3-lime"><p>w3-lime</p></div><br>
-<div class="w3-container w3-sand"><p>w3-sand</p></div><br>
-<div class="w3-container w3-khaki"><p>w3-khaki</p></div><br>
-<div class="w3-container w3-yellow"><p>w3-yellow</p></div><br>
-<div class="w3-container w3-amber"><p>w3-amber</p></div><br>
-<div class="w3-container w3-orange"><p>w3-orange</p></div><br>
-<div class="w3-container w3-deep-orange"><p>w3-deep-orange</p></div><br>
-<div class="w3-container w3-blue-grey"><p>w3-blue-grey</p></div><br>
-<div class="w3-container w3-brown"><p>w3-brown</p></div><br>
-<div class="w3-container w3-light-grey"><p>w3-light-grey</p></div><br>
-<div class="w3-container w3-grey"><p>w3-grey</p></div><br>
-<div class="w3-container w3-dark-grey"><p>w3-dark-grey</p></div><br>
-<div class="w3-container w3-black"><p>w3-black</p></div><br>
-<div class="w3-container w3-pale-red"><p>w3-pale-red</p></div><br>
-<div class="w3-container w3-pale-yellow"><p>w3-pale-yellow</p></div><br>
-<div class="w3-container w3-pale-green"><p>w3-pale-green</p></div><br>
-<div class="w3-container w3-pale-blue"><p>w3-pale-blue</p></div>
+	
+	<header class="w3-card-1 w3-container w3-theme-l2 ">
+		<div style="margin-top:36px" class="w3-container">
+			<h1 style="color:#337AB7"><i style="margin-right:7px" class="w3-spin fa fa-cogs"></i>KỸ NĂNG</h1>
+			<ul style="float:right" class="w3-navbar">
+				<li>
+					<%= link_to book_index_path do %>
+					<i style="margin-right:7px" class="fa fa-file-text-o"  ></i>books (3000)
+					<% end %>
+				</li>
+				<li>
+					<%= link_to category_index_path do %>
+					<i style="margin-right:7px" class="fa fa-file-text-o"  ></i>articles (3000)
+					<% end %>
+				</li>
+			</ul>  
+		</div><br>
+		
+	</header>
+	
+	<div style="font-size:1.095em;max-width:680px;margin:auto" class="w3-white w3-container w3-padding-jumbo">  
+		<%= raw @book.content %>
+	</div>
 
-</div>
 
-<footer class="w3-container w3-theme w3-padding-jumbo">
-  <h5>Footer</h5>
-  <p>Footer information goes here</p>
-</footer>
-     
+
+
+	<footer class="w3-container w3-theme-l2 w3-padding-jumbo">
+		<h5>Footer</h5>
+		<p>Footer information goes here</p>
+	</footer>
+		 
 </div>
 
+<script>
+for (var i = 0; i < document.links.length; i++) {
+		if (document.links[i].href == document.URL) {
+				document.links[i].className = 'active';
+		}
+}
+</script>

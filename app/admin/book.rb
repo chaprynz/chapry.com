@@ -1,11 +1,18 @@
 ActiveAdmin.register Book do
 
-    permit_params :name, :content, :tag, :image
+    permit_params :name, :content, :image
 
+    index do
+            selectable_column
+            column :id
+            column :name
+            column :tag
+            column :book
+            actions
+        end
     show do |t|
 		attributes_table do
 			row :name
-			row :content
 			row :image do
 				book.image? ? image_tag(book.image.url, height: '100') : content_tag(:span, "No photo yet")
 			end

@@ -17,6 +17,7 @@ ActiveAdmin.register Bookpost do
             column :title
             column :tag
             column :book
+            column :header
             actions
         end
         
@@ -25,7 +26,7 @@ ActiveAdmin.register Bookpost do
     			input :book, label: "book"
     			input :title, label: "Title"
     			input :note, label: "Note",  as: :wysihtml5, commands: [:bold, :italic, :underline, :ul, :ol, :outdent, :indent, :link, :image, :video, :source ], blocks: [:h1, :h2, :h3, :h4, :h5, :h6, :p]
-    			input :tag, label: "Tag"
+    			input :header, label: "header"
     			
     		    
     		end

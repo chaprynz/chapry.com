@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160403112350) do
+ActiveRecord::Schema.define(version: 20160404032408) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20160403112350) do
   create_table "bookposts", force: :cascade do |t|
     t.string   "title"
     t.text     "note"
-    t.string   "tag"
+    t.integer  "tag"
     t.integer  "book_id"
     t.boolean  "header",     default: false, null: false
     t.datetime "created_at",                 null: false

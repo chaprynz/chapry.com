@@ -2,36 +2,23 @@
 		<%= render partial: "shared/message" %>
 		<%= render partial: "shared/header" %>
 		
-		<div class="w3-padding w3-container"
-		   
-				<div class="w3-padding w3-container">   
-					<div class="w3-padding-large w3-col l3 m4 s12">
-						<% @book.where('id>0').limit(2).each do |book| %>
-								<%= link_to  book_path(book) do %>
-									<div class="w3-card-1 w3-black">
-										<%= image_tag book.image, style: "width:100%" %>
-										<div class="w3-container">
-											<h3><%= book.name %></h3>
-										</div>
-									</div><br>
-								<% end %>	
-						<% end %>
-				 	</div>
-				 	<div class="w3-padding-large w3-col l3 m4 s12">
-						<% @book.where('id>3').limit(2).each do |book| %>
-								<%= link_to  book_path(book) do %>
-									<div class="w3-card-1 w3-black">
-										<%= image_tag book.image, style: "width:100%" %>
-										<div class="w3-container">
-											<h3><%= book.name %></h3>
-										</div>
-									</div><br>
-								<% end %>	
-						<% end %>
-				 	</div>
-				</div>
-				
-			
+		<div style="margin:auto;max-width:1260px" class="w3-padding w3-container">
+			<div class="w3-container">   
+				<% @book.each do |book| %>
+						<%= link_to  book_path(book) do %>
+							<div class="w3-padding-large w3-col l4 m6 ">
+								<div  style="margin-bottom:20px" class="w3-card-1 w3-white ">
+									<%= image_tag book.image, style: "width:100%" %>
+									<div class="w3-container">
+										<p style="font-size:1.3em"><%= book.name %></p>
+										<h5 style="color:#1968B3"><i style="margin-right:5px" class="fa fa-user"></i>ChapryNz</h5>
+										<p style="color:#1968B3"><i style="margin-right:5px" class="fa fa-eye"></i>12688<i style="float:right" class="fa fa-plus-circle"></i></p>
+									</div>
+								</div>
+							</div>	
+						<% end %>	
+				<% end %>
+			</div>
 		</div>
 		
 		

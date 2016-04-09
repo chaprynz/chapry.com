@@ -4,6 +4,7 @@ class BookpostController < ApplicationController
   	book = Book.find params[:book_id]
   	@bookpost = Bookpost.find(params[:id])
   	@bookposts = book.bookposts.order(:tag)
+  	@book = Book.find(params[:book_id])
   end 
 
   
