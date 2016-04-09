@@ -27,11 +27,13 @@ gem 'paperclip', '~> 4.3', '>= 4.3.6'
 
 gem 'therubyracer', platforms: :ruby
 
+gem 'aws-sdk-rails', '~> 1.0'
+
 group :doc do
   gem 'sdoc', '~> 0.4.0'
 end
 
-gem 'aws-sdk-rails', '~> 1.0'
+
 
 group :development, :test do
   gem 'byebug'
